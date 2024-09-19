@@ -104,13 +104,14 @@ int main(int argc, char **argv) {
 
         // Check if we received a screen change notify event
         if (event.type == event_base + RRScreenChangeNotify) {
+            XRRScreenChangeNotifyEvent *screen_change_event = (XRRScreenChangeNotifyEvent *)&event;
+            
+            int new_width = screen_change_event->width;
+            int new_height = screen_change_event->height;
 
             Window window = find_window_by_name(display, root, argv[1]);
             if (window != 0) {
-                // Resize the window to the full screen size
-                int screen_width = XDisplayWidth(display, screen);
-                int screen_height = XDisplayHeight(display, screen);
-                XResizeWindow(display, window, screen_width, screen_height);
+                XResizeWindow(display, window, new_width, new_height);
                 XMoveWindow(display, window, 0, 0);
                 XFlush(display);
             }
