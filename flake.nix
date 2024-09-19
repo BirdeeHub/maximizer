@@ -13,10 +13,11 @@
       in foldl' op attrs (attrNames ret);
     in foldl' op { } nixpkgs.lib.platforms.all;
 
+    APPNAME = "maximize_program";
     appOverlay = final: prev: {
       # any pkgs overrides made here will be inherited in the arguments of default.nix
       # because we used final.callPackage instead of prev.callPackage
-      resize_alacritty = final.callPackage ./. {};
+      ${APPNAME} = final.callPackage ./. { inherit APPNAME; };
     };
   in {
     overlays.default = appOverlay;
@@ -25,7 +26,7 @@
       pkgs = import nixpkgs { inherit system; overlays = [ appOverlay ]; };
     in{
       packages = {
-        default = pkgs.resize_alacritty;
+        default = pkgs.${APPNAME};
       };
     })
   );

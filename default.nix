@@ -1,14 +1,14 @@
-{ stdenv, libX11, libXrandr, ... }:
-stdenv.mkDerivation rec {
-  name = "maximize_window";
+{ stdenv, libX11, libXrandr, APPNAME ? "REPLACE_ME", ... }:
+stdenv.mkDerivation {
+  name = APPNAME;
   src = ./maximizer.c;
   dontUnpack = true;
   buildInputs = [ libX11 libXrandr ];
   buildPhase = ''
-    $CC -o ${name} $src -lX11 -lXrandr
+    $CC -o ${APPNAME} $src -lX11 -lXrandr
   '';
   installPhase = ''
     mkdir -p $out/bin
-    cp ${name} $out/bin/
+    cp ${APPNAME} $out/bin/
   '';
 }
