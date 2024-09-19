@@ -88,9 +88,9 @@ int main(int argc, char **argv) {
 
     XRRSelectInput(display, root, RRScreenChangeNotifyMask);
 
+    // Initial maximize
     Window window = find_window_by_name(display, root, argv[1]);
     if (window != 0) {
-        // Resize the window to the full screen size
         int screen_width = XDisplayWidth(display, screen);
         int screen_height = XDisplayHeight(display, screen);
         XResizeWindow(display, window, screen_width, screen_height);
