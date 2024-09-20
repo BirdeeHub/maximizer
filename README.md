@@ -5,7 +5,7 @@ If your Xsession just runs a terminal emulator,
 for example, when making a minimal installer image,
 and does not run a window manager, this requires some work.
 
-This is a short C program that does this.
+This is a short C program that does this. (without polling)
 
 It maximizes the named window and when a screen change event occurs,
 it maximizes the window again.
