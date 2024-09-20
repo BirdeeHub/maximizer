@@ -10,7 +10,9 @@ This is a short C program that does this. (without polling)
 It maximizes the named window and when a screen change event occurs,
 it maximizes the window again.
 
-run it on its own or as a service.
+run it on its own or as a service,
+as long as it is ran the first time while the program is running
+for the initial maximization.
 
 use xprop to get the window name to provide.
 
