@@ -1,7 +1,7 @@
 How do you maximize a window and keep it maximized
 without a window manager?
 
-If your session just runs a terminal emulator,
+If your Xsession just runs a terminal emulator,
 for example, when making a minimal installer image,
 and does not run a window manager, this requires some work.
 
