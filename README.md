@@ -34,6 +34,6 @@ git clone https://github.com/BirdeeHub/maximizer
 cd maximizer && ./build.sh
 
 # If you wanted to maximize a terminal emulator, find its name with xprop
-# For xterm, it is "xterm"
-./maximize_program xterm
+# For alacritty, it is "Alacritty"
+./maximize_program Alacritty
 ```
