@@ -14,5 +14,20 @@ run it on its own or as a service.
 
 use xprop to get the window name to provide.
 
-packaged only for nix, but to build on another system,
-`-lX11 -lXrandr` are the only extra flags you need to provide to your c compiler.
+on nix using X11:
+```bash
+# If you wanted to maximize a terminal emulator, find its name with xprop
+# For alacritty, it is "Alacritty"
+nix run github:BirdeeHub/maximizer -- Alacritty
+```
+
+other X11:
+
+also requires:
+
+- gcc
+
+```bash
+git clone https://github.com/BirdeeHub/maximizer
+cd maximizer && ./build.sh
+```
